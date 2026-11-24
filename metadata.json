@@ -1,0 +1,8 @@
+{
+  "name": "Remix Dr. Mariam Ibrahim Dental Studio",
+  "description": "Bespoke dental and aesthetic care defined by precision, elegance, and a commitment to timeless, radiant smiles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
