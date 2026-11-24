@@ -22,6 +22,9 @@ export interface DentalService {
   imageAltEn: string;
   imageAltAr: string;
   variants?: ServiceVariant[];
+  suitableCasesLabelEn?: string;
+  suitableCasesLabelAr?: string;
+  suitableCases?: { en: string; ar: string }[];
   bookingValue: string;
 }
 
@@ -227,6 +230,43 @@ export const DENTAL_SERVICES: DentalService[] = [
     imageAltEn: 'Dental bone grafting instruments, bone graft granules vial, and anatomical jaw model in a serene clinic',
     imageAltAr: 'أدوات زراعة عظم الفك ونموذج طبي لعظم الفك في عيادة أسنان هادئة',
     bookingValue: 'Dental Bone Grafting — زراعة عظم الفك',
+  },
+  {
+    id: 'general-anesthesia',
+    index: '11',
+    titleEn: 'Dental Treatment Under General Anesthesia',
+    titleAr: 'علاج الأسنان تحت تأثير التخدير العام',
+    category: 'dental',
+    categoryLabelEn: 'Dental Services',
+    categoryLabelAr: 'خدمات الأسنان',
+    descriptionEn:
+      'Providing dental procedures and treatments under general anesthesia for cases that require it, following medical evaluation and coordination with the anesthesia team in an equipped medical facility.',
+    descriptionAr:
+      'تقديم إجراءات وعلاجات الأسنان تحت تأثير التخدير العام للحالات التي تستدعي ذلك، بعد التقييم الطبي والتنسيق مع فريق التخدير وفي منشأة طبية مجهزة.',
+    image: '/src/assets/images/service_extraction_1795174069046.jpg',
+    imageAltEn: 'Dental treatment under general anesthesia in an equipped medical facility with a coordinated clinical team',
+    imageAltAr: 'علاج الأسنان تحت تأثير التخدير العام بالتنسيق مع الفريق الطبي في منشأة مجهزة',
+    suitableCasesLabelEn: 'Suitable Cases:',
+    suitableCasesLabelAr: 'الحالات المناسبة:',
+    suitableCases: [
+      {
+        en: 'Uncooperative children.',
+        ar: 'الأطفال غير المتعاونين.',
+      },
+      {
+        en: 'Special needs patients.',
+        ar: 'المرضى ذوي الاحتياجات الخاصة.',
+      },
+      {
+        en: 'Cases of severe dental anxiety or inability to tolerate treatment.',
+        ar: 'حالات الخوف الشديد أو عدم القدرة على تحمل العلاج.',
+      },
+      {
+        en: 'Cases requiring multiple dental procedures.',
+        ar: 'الحالات التي تحتاج إلى إجراءات أسنان متعددة.',
+      },
+    ],
+    bookingValue: 'Dental Treatment Under General Anesthesia — علاج الأسنان تحت تأثير التخدير العام',
   },
 ];
 

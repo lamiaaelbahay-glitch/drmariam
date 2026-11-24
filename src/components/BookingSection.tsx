@@ -9,7 +9,11 @@ import {
   User,
 } from 'lucide-react';
 import { motion } from 'motion/react';
-import { buildWhatsAppBookingUrl, CLINIC_SETTINGS } from '../config/clinicSettings';
+import {
+  buildWhatsAppBookingUrl,
+  CLINIC_SETTINGS,
+  getSanitizedWhatsAppNumber,
+} from '../config/clinicSettings';
 import { BOOKING_SERVICE_OPTIONS } from '../data/services';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -66,8 +70,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
     [selectedService]
   );
 
-  const hasConfiguredWhatsAppNumber =
-    CLINIC_SETTINGS.whatsappNumber.replace(/[^\d]/g, '').length > 0;
+  const hasConfiguredWhatsAppNumber = getSanitizedWhatsAppNumber().length > 0;
 
   const validate = (): FormErrors => {
     const nextErrors: FormErrors = {};

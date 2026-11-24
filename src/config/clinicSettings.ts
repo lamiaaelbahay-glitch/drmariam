@@ -37,7 +37,9 @@ export const CLINIC_SETTINGS: ClinicSettings = {
     en: 'Dental Surgeon & Facial Aesthetics Clinic',
     ar: 'جراحة الفم والأسنان وعيادة التجميل الجلدي',
   },
-  whatsappNumber: (import.meta.env.VITE_CLINIC_WHATSAPP_NUMBER as string | undefined)?.trim() || '',
+  whatsappNumber:
+    (import.meta.env.VITE_CLINIC_WHATSAPP_NUMBER as string | undefined)?.trim() ||
+    '201215124214',
   socialLinks: {
     instagram: 'https://www.instagram.com/dr.mariamibrahim',
     facebook: 'https://www.facebook.com/share/1CPAfZ4iZ9/?mibextid=wwXIfr',
@@ -46,12 +48,27 @@ export const CLINIC_SETTINGS: ClinicSettings = {
 };
 
 /**
+ * Normalizes any configured WhatsApp phone number to international digits-only format.
+ * Automatically converts Egyptian local format (01XXXXXXXXX -> 201XXXXXXXXX).
+ */
+export function getSanitizedWhatsAppNumber(): string {
+  const digits = CLINIC_SETTINGS.whatsappNumber.replace(/[^\d]/g, '');
+  if (digits.startsWith('00')) {
+    return digits.slice(2);
+  }
+  if (digits.length === 11 && digits.startsWith('01')) {
+    return `2${digits}`;
+  }
+  return digits;
+}
+
+/**
  * Formats a WhatsApp booking URL using the centrally configured clinic number.
  * If whatsappNumber is configured, routes directly to that clinic chat; otherwise opens
  * WhatsApp's composer with the prefilled patient booking message.
  */
 export function buildWhatsAppBookingUrl(message: string): string {
-  const sanitizedNumber = CLINIC_SETTINGS.whatsappNumber.replace(/[^\d]/g, '');
+  const sanitizedNumber = getSanitizedWhatsAppNumber();
   const encodedMessage = encodeURIComponent(message);
 
   if (sanitizedNumber.length > 0) {

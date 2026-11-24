@@ -106,6 +106,30 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelectService }) =
 
         <p className="mt-3.5 text-[14px] leading-[1.7] text-[#59534C]">{description}</p>
 
+        {service.suitableCases && service.suitableCases.length > 0 && (
+          <div className="mt-4 rounded-sm border border-[#ECE2D3] bg-[#FAF7F2] p-3.5">
+            <p className="text-[12px] font-semibold text-[#96774B]">
+              {isRtl
+                ? service.suitableCasesLabelAr ?? 'الحالات المناسبة:'
+                : service.suitableCasesLabelEn ?? 'Suitable Cases:'}
+            </p>
+            <ul className="mt-2 space-y-1.5">
+              {service.suitableCases.map((item, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-2 text-[13px] leading-snug text-[#3A3632]"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C6A77B]"
+                  />
+                  <span>{isRtl ? item.ar : item.en}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <div className="mt-auto pt-6">
           <button
             type="button"
