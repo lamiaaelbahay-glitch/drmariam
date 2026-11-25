@@ -4,6 +4,7 @@ import {
   Calendar,
   Check,
   Copy,
+  MapPin,
   MessageCircle,
   Phone,
   User,
@@ -296,12 +297,33 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
               <p>{copy.note}</p>
             </div>
 
-            {/* Social Media Links in Contact / Booking Section */}
-            <div className="mt-8 pt-6 border-t border-[#DFD4C4]">
-              <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#96774B]">
-                {lang === 'ar' ? 'تابع عيادة د. مريم إبراهيم' : 'Connect On Social Media'}
-              </p>
-              <div className="mt-3 flex items-center gap-3">
+            {/* Clinic Address & Social Media Links in Contact / Booking Section */}
+            <div className="mt-8 pt-6 border-t border-[#DFD4C4] space-y-6">
+              <div>
+                <p
+                  className={`text-[12px] font-medium text-[#96774B] ${
+                    isRtl ? 'tracking-normal' : 'tracking-[0.12em]'
+                  }`}
+                >
+                  {lang === 'ar' ? 'العنوان' : 'Clinic Location'}
+                </p>
+                <div className="mt-2.5 flex items-center gap-2.5 text-[15px] font-medium text-[#292725]">
+                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-[#D5C7B2] bg-[#FFFFFF] text-[#96774B]">
+                    <MapPin className="h-4 w-4" strokeWidth={1.75} />
+                  </span>
+                  <span>{CLINIC_SETTINGS.location[lang]}</span>
+                </div>
+              </div>
+
+              <div>
+                <p
+                  className={`text-[12px] font-medium text-[#96774B] ${
+                    isRtl ? 'tracking-normal' : 'tracking-[0.12em]'
+                  }`}
+                >
+                  {lang === 'ar' ? 'تابع عيادة د. مريم إبراهيم' : 'Connect On Social Media'}
+                </p>
+                <div className="mt-3 flex items-center gap-3">
                 <a
                   href={CLINIC_SETTINGS.socialLinks.instagram}
                   target="_blank"
@@ -326,6 +348,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     <path d="M14.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.3-1.6 1.6-1.6h1.6V3.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.5H8.7V13h2.6v8h3.2Z" />
                   </svg>
                 </a>
+                </div>
               </div>
             </div>
           </motion.div>

@@ -40,6 +40,7 @@ export interface AestheticSubCategory {
   titleEn: string;
   titleAr: string;
   image: string;
+  imageAspect?: '4/3' | '4/5';
   imageAltEn: string;
   imageAltAr: string;
   bookingValue: string;
@@ -325,12 +326,49 @@ export const AESTHETIC_SUB_CATEGORIES: AestheticSubCategory[] = [
     ],
   },
   {
+    id: 'facial-contouring',
+    titleEn: 'Facial Contouring with Fillers',
+    titleAr: 'كنتور ونحت الوجه بالفيلر',
+    image: '/assets/aistudio/image_43f3cdfb.png',
+    imageAspect: '4/5',
+    imageAltEn: 'Facial contouring with fillers diagram highlighting cheek contouring, chin contouring, jawline contouring, and Texas technique',
+    imageAltAr: 'توضيح لمناطق كنتور ونحت الوجه بالفيلر: كنتور الخدود، كنتور الذقن، وتحديد خط الفك تكساس',
+    bookingValue: 'Facial Contouring with Fillers — كنتور ونحت الوجه بالفيلر',
+    items: [
+      {
+        id: 'cheek-contouring',
+        en: 'Cheek Contouring',
+        ar: 'كنتور الخدود',
+        bookingValue: 'Fillers: Cheek Contouring — كنتور الخدود',
+      },
+      {
+        id: 'chin-contouring',
+        en: 'Chin Contouring',
+        ar: 'كنتور الذقن',
+        bookingValue: 'Fillers: Chin Contouring — كنتور الذقن',
+      },
+      {
+        id: 'jawline-contouring',
+        en: 'Jawline Contouring',
+        ar: 'تحديد خط الفك',
+        bookingValue: 'Fillers: Jawline Contouring — تحديد خط الفك',
+      },
+      {
+        id: 'texas-technique',
+        en: 'Texas Technique',
+        ar: 'تحديد الذقن والفك (تكساس)',
+        bookingValue: 'Fillers: Texas Technique — تحديد الذقن والفك (تكساس)',
+      },
+    ],
+  },
+  {
     id: 'skin-boosters',
     titleEn: 'Skin Boosters',
     titleAr: 'حقن نضارة البشرة',
-    image: '/src/assets/images/aesthetic_skin_boosters_1795521347923.jpg',
-    imageAltEn: 'Sterile hyaluronic acid and skin booster glass vials and pre-filled syringes on a travertine medical tray',
-    imageAltAr: 'أمبولات الهيالورونيك أسيد وحقن نضارة وترطيب البشرة المعقمة داخل العيادة',
+    image: '/assets/aistudio/image_3a097222.png',
+    imageAspect: '4/5',
+    imageAltEn: 'Radiant hydrated skin and natural dewy glow representing skin boosters and rejuvenation care',
+    imageAltAr: 'إشراقة وترطيب طبيعي للبشرة تعبّر عن جلسات حقن نضارة وتجديد البشرة',
     bookingValue: 'Skin Boosters — حقن نضارة البشرة',
     items: [
       {

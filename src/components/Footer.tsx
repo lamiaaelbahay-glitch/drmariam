@@ -1,4 +1,5 @@
 import React from 'react';
+import { MapPin } from 'lucide-react';
 import { CLINIC_SETTINGS } from '../config/clinicSettings';
 import { useLanguage } from '../i18n/LanguageContext';
 import { FullClinicLogo } from './BrandLogo';
@@ -12,7 +13,6 @@ const FOOTER_LINKS = [
 
 export const Footer: React.FC = () => {
   const { lang, toggleLang, isRtl } = useLanguage();
-  const currentYear = new Date().getFullYear();
 
   const socialItems = [
     {
@@ -105,6 +105,14 @@ export const Footer: React.FC = () => {
                 ? 'تابعوا عيادة د. مريم إبراهيم لأحدث النصائح والعناية بالابتسامة.'
                 : 'Follow Dr. Mariam Ibrahim for clinic updates and smile care guidance.'}
             </p>
+            <div className="mt-4 flex items-center gap-2 text-[14px] font-medium text-[#F7F3ED]">
+              <MapPin className="h-4 w-4 shrink-0 text-[#C6A77B]" strokeWidth={1.75} />
+              <span>
+                {lang === 'ar'
+                  ? `العنوان: ${CLINIC_SETTINGS.location.ar}`
+                  : CLINIC_SETTINGS.location.en}
+              </span>
+            </div>
             <div className="mt-5 flex items-center gap-3">
               {socialItems.map((social) => (
                 <a
@@ -125,9 +133,17 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Copyright Bar */}
         <div className="mt-14 flex flex-col gap-3 border-t border-[#F7F3ED]/12 pt-7 text-[13px] text-[#E8DED1]/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            &copy; {currentYear} {CLINIC_SETTINGS.brandName[lang]}.{' '}
-            {lang === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}
+          <p dir="ltr">
+            All Copyright{' '}
+            <a
+              href="https://instagram.com/solimanmedia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[#C6A77B] underline-offset-4 transition-colors hover:text-[#FFFFFF] hover:underline"
+            >
+              SolimanMedia
+            </a>{' '}
+            2026
           </p>
           <p className={isRtl ? 'tracking-normal' : 'tracking-[0.04em]'}>
             {CLINIC_SETTINGS.brandSubtitle[lang]}

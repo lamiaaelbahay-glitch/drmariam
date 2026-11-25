@@ -246,8 +246,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </h3>
                 <p className="text-[13px] text-[#7A7269]">
                   {lang === 'ar'
-                    ? 'علاجات البوتوكس، حقن النضارة، الديرما بن، والميزوثيرابي'
-                    : 'Botox, skin boosters, dermapen & mesotherapy'}
+                    ? 'علاجات البوتوكس، كنتور ونحت الوجه بالفيلر، حقن النضارة، الديرما بن، والميزوثيرابي'
+                    : 'Botox, facial contouring with fillers, skin boosters, dermapen & mesotherapy'}
                 </p>
               </div>
             </div>
@@ -290,7 +290,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           >
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
               <div className="lg:col-span-4">
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-[#ECE3D7]">
+                <div
+                  className={`relative w-full overflow-hidden rounded-sm bg-[#ECE3D7] ${
+                    activeAestheticGroup.imageAspect === '4/5' ? 'aspect-[4/5]' : 'aspect-[4/3]'
+                  }`}
+                >
                   {!isAestheticImageFailed ? (
                     <img
                       key={activeAestheticGroup.image}
@@ -304,7 +308,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                           [activeAestheticGroup.id]: true,
                         }))
                       }
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover object-center"
                     />
                   ) : (
                     <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[#F3ECE2] to-[#E5D9C8] p-6 text-center">

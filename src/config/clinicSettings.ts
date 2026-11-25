@@ -14,6 +14,10 @@ export interface ClinicSettings {
     en: string;
     ar: string;
   };
+  location: {
+    en: string;
+    ar: string;
+  };
   /**
    * Enter the clinic's WhatsApp number in international format without '+' or spaces.
    * Example for Egypt: "2010XXXXXXXX"
@@ -36,6 +40,10 @@ export const CLINIC_SETTINGS: ClinicSettings = {
   brandSubtitle: {
     en: 'Dental Surgeon & Facial Aesthetics Clinic',
     ar: 'جراحة الفم والأسنان وعيادة التجميل الجلدي',
+  },
+  location: {
+    en: 'Port Said, Egypt',
+    ar: 'بورسعيد',
   },
   whatsappNumber:
     (import.meta.env.VITE_CLINIC_WHATSAPP_NUMBER as string | undefined)?.trim() ||
